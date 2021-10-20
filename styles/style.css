@@ -1,0 +1,116 @@
+*{
+	box-sizing: border-box;
+}
+html{
+	font-size: 16px;
+}
+body, html{
+	margin: 0;
+	padding: 0;	
+}
+body{
+	background: #2c2c54;
+	max-width: 100%;
+	min-height: 100vh;
+	font-family: sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.form{
+	padding: 10em;
+	background: linear-gradient(40deg, #706fd3 20%, #474787 80%);
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, .5);
+}
+.form__label{
+	color: #f7f1e3;
+	background: linear-gradient(40deg, #34495e 30%, #2c3e50 50%);
+	padding: 1.5em;
+	cursor: pointer;
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, .5);
+}
+.form__checkbox{
+	cursor: pointer;
+	opacity: 0;
+	position: absolute;
+}
+.form__check{
+	background-color: white;
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	margin-right: .3em;
+	position: relative;
+	background: #34495e;
+	box-shadow: 0px 0px 2px rgba(255, 255, 255, 1);
+	animation: shadowback 1s ease-out;
+}
+.form__checkbox:checked + .form__label .form__check{
+	box-shadow: 0px 0px 2px #c0392b;
+	animation: shadow 2s infinite;
+}
+.form__checkbox:checked + .form__label .form__check::before{
+	content: '';
+	width: .3em;
+	height: 0.75em;
+	background-color: #c0392b;
+	position: absolute;
+	left: 0;
+	animation: checkbefore 0.4s linear;
+	transform: translate(5.75px, 2px) rotate(-45deg);
+}
+.form__checkbox:checked + .form__label .form__check::after{
+	content: '';
+	width: .3em;
+	height: 0.75em;
+	background-color: #c0392b;
+	position: absolute;
+	left: 0;
+	animation: checkafter 0.4s linear;
+	transform: translate(5.75px, 2px) rotate(45deg);
+}
+
+@keyframes checkbefore {
+  0% {
+	opacity: 0;
+    transform: translate(5.75px, 2px);
+	box-shadow: 0px 0px 2px rgba(255, 255, 255, 1);
+  }
+  100% {
+	opacity: 1;
+    transform: translate(5.75px, 2px) rotate(-45deg);
+	box-shadow: 0px 0px 2px #c0392b;
+  }
+}
+@keyframes checkafter {
+  0% {
+	opacity: 0;
+    transform: translate(5.75px, 2px);
+	box-shadow: 0px 0px 2px rgba(255, 255, 255, 1);
+  }
+  100% {
+	opacity: 1;
+    transform: translate(5.75px, 2px) rotate(45deg);
+	box-shadow: 0px 0px 2px #c0392b;
+  }
+}
+@keyframes shadow{
+  0% {
+	box-shadow: 0px 0px 2px rgba(255, 255, 255, 1);
+  }
+  50% {
+	box-shadow: 0px 0px 2px #c0392b;
+  }
+  100% {
+	box-shadow: 0px 0px 2px rgba(255, 255, 255, 1);
+  }
+}
+@keyframes shadowback{
+  0% {
+	box-shadow: 0px 0px 2px #c0392b;
+  }
+  100% {
+	box-shadow: 0px 0px 2px rgba(255, 255, 255, 1);
+  }
+}
